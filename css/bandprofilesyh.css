@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Zen Kurenaido', sans-serif;
+  background-color: #abd8ff;
+  color: #000000;
+  animation: fadeSlideIn 1s ease-out; /* 加這行 */
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 返回首頁圖標 */
+.home-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.home-logo img {
+  width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.home-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* 外部容器：左右或上下排版 */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 5vw;
+  min-height: 100vh;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* 圖片區塊 */
+.image-section {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 滑鼠移上去的效果 */
+.image-section img:hover {
+  transform: scale(1.05); /* 稍微放大 */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6); /* 陰影更濃 */
+}
+
+/* 文字區塊 */
+.info-section {
+  flex: 1 1 400px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.info-section p {
+  margin-bottom: 15px;
+}
+
+/* 響應式調整：手機垂直排列 */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info-section {
+    width: 90%;
+  }
+
+  .image-section img {
+    width: 100%;
+    height: auto;
+  }
+}
+/* 上箭頭連結 */
+.arrow-up {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  color: #6fb5e0;
+  text-decoration: none;
+  transition: color 0.3s;
+  z-index: 1000;
+}
+
+.arrow-up:hover {
+  color: #ffffff;
+}
+
+/*淡入＋上滑*/
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
